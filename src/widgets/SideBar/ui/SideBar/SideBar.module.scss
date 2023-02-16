@@ -1,0 +1,24 @@
+.sideBar {
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  width: var(--sidebar-width);
+  transition: width 0.3s;
+
+  height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px 10px 10px;
+}
+
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.bottomItems {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: auto;
+}
