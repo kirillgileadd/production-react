@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve",
     "webpack": "webpack",
     "build:dev": "webpack --env mode=development",
@@ -12,7 +12,8 @@
     "lint:ts": "eslint **/*.{ts,tsx}",
     "lint:ts:fix": "eslint **/*.{ts,tsx} --fix",
     "lint:css": "npx stylelint **/*.scss",
-    "lint:css:fix": "npx stylelint **/*.scss --fix"
+    "lint:css:fix": "npx stylelint **/*.scss --fix",
+    "unit": "jest --config ./config/jest/jest.config.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,7 @@
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
+    "@babel/preset-typescript": "^7.21.4",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",

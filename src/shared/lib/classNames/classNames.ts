@@ -6,6 +6,5 @@ export const classNames = (className: string, modes: Mode = {}, aditional: strin
     ...aditional,
     ...Object.entries(modes).filter(([className, value]) => !!value)
         .map(([className]) => className),
-
 ]
     .join(' ');
