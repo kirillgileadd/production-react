@@ -1,0 +1,8 @@
+.pageLoader {
+  height: calc(100vh - var(--navbar-height));
+  font: var(--font-l);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
