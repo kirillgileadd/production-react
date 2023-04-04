@@ -29,13 +29,20 @@ module.exports = {
     ],
     moduleDirectories: [
         'node_modules',
+        '<rootDir>/src',
     ],
-    roots: [
-        '<rootDir>',
+
+    setupFilesAfterEnv: [
+        '<rootDir>/config/jest/setupTests.ts',
     ],
     rootDir: '../../',
 
     testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '^.+\\.svg$': '<rootDir>/config/jest/svgTransform.js',
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

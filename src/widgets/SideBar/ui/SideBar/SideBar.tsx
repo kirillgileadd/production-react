@@ -17,8 +17,8 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
     };
 
     return (
-        <aside className={classNames(cls.sideBar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button onClick={handleCollapse}>Toggle</Button>
+        <aside data-testid="sidebar" className={classNames(cls.sideBar, { [cls.collapsed]: collapsed }, [className])}>
+            <Button data-testid="sidebar-toggle" onClick={handleCollapse}>Toggle</Button>
             <div className={cls.bottomItems}>
                 <TranslateSwitcher />
                 <ThemeSwitcher />
