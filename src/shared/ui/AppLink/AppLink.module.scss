@@ -1,5 +1,6 @@
 .appLink {
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .primary {
@@ -7,5 +8,9 @@
 }
 
 .secondary {
+  color: var(--secondary-color);
+}
+
+.light {
   color: var(--inverted-primary-color);
 }

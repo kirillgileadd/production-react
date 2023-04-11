@@ -1,5 +1,12 @@
 .button {
   cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: var(--secondary-color);
+  color: var(--inverted-primary-color);
+  border: none;
+  outline: none;
+  font-weight: 600;
 }
 
 .unstyled {
@@ -8,4 +15,10 @@
   outline: none;
   border: none;
   background-color: transparent;
+}
+
+.outline {
+  background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }

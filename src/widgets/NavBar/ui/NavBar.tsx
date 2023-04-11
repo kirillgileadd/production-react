@@ -12,11 +12,15 @@ export const NavBar: FC<NavBarProps> = () => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.navbar, {}, [])}>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <div className={cls.logo}>Gilead Production React</div>
             <div className={cls.links}>
-                <AppLink to="/" theme="secondary">{t('Главная')}</AppLink>
-                <AppLink to="/about" theme="secondary">
+                <AppLink to="/" theme="light">{t('Главная')}</AppLink>
+                <AppLink to="/about" theme="light">
                     {t('О нас')}
+                </AppLink>
+                <AppLink to="/about" theme="light">
+                    {t('Новости')}
                 </AppLink>
             </div>
         </div>

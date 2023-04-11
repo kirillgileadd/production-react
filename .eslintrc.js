@@ -48,7 +48,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'theme'],
+                ignoreAttribute: ['data-testid', 'to', 'theme', 'fill'],
             },
         ],
     },
