@@ -9,7 +9,6 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        os: [ macos-latest ]
         node-version: [ 17.x ]
 
     steps:
