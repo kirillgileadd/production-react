@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-2019 ]
+        os: [ windows-2019 ]
         node-version: [ 17.x ]
 
     steps:
