@@ -7,7 +7,7 @@ on:
 jobs:
   pipeline:
     strategy:
-      runs-on: ${{ matrix.os }}
+      runs-on: windows-2019
       matrix:
         os: [ ubuntu-latest, windows-2019 ]
         node-version: [ 17.x ]
