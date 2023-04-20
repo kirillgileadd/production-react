@@ -42,7 +42,6 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
         // 'max-len': ['error', { ignoreComments: true, code: 100 }],
         'max-len': 'off',
         'i18next/no-literal-string': [

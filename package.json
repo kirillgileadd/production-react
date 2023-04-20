@@ -16,7 +16,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.js",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "loki --requireReference --reactUri file: ./storybook-static",
     "storybook": "storybook dev -p 6006 -c config/storybook",
     "storybook:build": "storybook build -c config/storybook"
   },
@@ -32,7 +32,7 @@
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
     "@storybook/blocks": "^7.0.2",
-    "@storybook/react": "6.4.19",
+    "@storybook/react": "^7.0.2",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@svgr/webpack": "^6.2.1",

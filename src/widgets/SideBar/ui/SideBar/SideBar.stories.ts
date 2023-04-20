@@ -4,7 +4,6 @@ import { SideBar } from './SideBar';
 const meta: Meta<typeof SideBar> = {
     title: 'shared/SideBar',
     component: SideBar,
-    tags: ['autodocs'],
     argTypes: {},
 };
 

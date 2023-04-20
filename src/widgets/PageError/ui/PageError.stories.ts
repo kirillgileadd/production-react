@@ -4,7 +4,6 @@ import { PageError } from './PageError';
 const meta: Meta<typeof PageError> = {
     title: 'shared/PageError',
     component: PageError,
-    tags: ['autodocs'],
     argTypes: {},
 };
 
