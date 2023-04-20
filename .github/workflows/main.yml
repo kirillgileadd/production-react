@@ -6,11 +6,12 @@ on:
     branches: [ main ]
 jobs:
   pipeline:
+    runs-on: ${{ matrix.os }}
     strategy:
-      runs-on: ${{ matrix.os }}
       matrix:
         os: [ ubuntu-latest, windows-2019 ]
         node-version: [ 17.x ]
+
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
