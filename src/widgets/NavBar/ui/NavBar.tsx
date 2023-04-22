@@ -15,13 +15,7 @@ export const NavBar: FC<NavBarProps> = () => {
             {/* eslint-disable-next-line i18next/no-literal-string */}
             <div className={cls.logo}>Gilead Production React</div>
             <div className={cls.links}>
-                <AppLink to="/" theme="light">{t('Главная')}</AppLink>
-                <AppLink to="/about" theme="light">
-                    {t('О нас')}
-                </AppLink>
-                <AppLink to="/about" theme="light">
-                    {t('Новости')}
-                </AppLink>
+                123
             </div>
         </div>
     );
