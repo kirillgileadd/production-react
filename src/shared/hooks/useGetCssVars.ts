@@ -1,8 +1,8 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 
 export const useGetCSSVars = (type: string, arg?: string): string => {
-    if (typeof window === 'undefined') return 'inherit';
     const { theme } = useTheme();
+    if (typeof window === 'undefined') return 'inherit';
 
     const root = window.document.querySelector(':root');
     const dark = window.document.querySelector('.dark');

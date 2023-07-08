@@ -6,7 +6,16 @@
   --font-size-l: 24px;
   --font-height-l: 32px;
   --font-l: var(--font-size-l) / var(--font-height-l) var(--font-family);
+
+  --sidebar-width-collapsed: 80px;
+
+  //sizes
   --navbar-height: 50px;
   --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
+
+  // z-index
+  --modal-z-index: 10;
+
+  // colors
+  --owerlay-color: rgba(0 0 0 / 0.6);
 }
