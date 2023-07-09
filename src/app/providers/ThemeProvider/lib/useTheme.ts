@@ -11,7 +11,7 @@ export const useTheme = (): useThemeResult => {
 
     useEffect(() => {
         document.body.className = theme;
-    }, []);
+    }, [theme]);
 
     const toggleTheme = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
