@@ -13,5 +13,7 @@
   "Тестовый перевод": "Test Translate",
   "Тогл": "toggle",
   "Что-то пошло не так": "Что-то пошло не так",
-  "Язык": "EN"
+  "Язык": "EN",
+  "decrement": "decrement",
+  "increment": "increment"
 }
