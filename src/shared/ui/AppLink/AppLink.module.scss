@@ -1,6 +1,10 @@
 .appLink {
-  text-decoration: underline;
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .primary {

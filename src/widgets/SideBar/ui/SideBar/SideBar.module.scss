@@ -6,8 +6,8 @@
   height: calc(100vh - var(--navbar-height));
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  align-items: flex-start;
+  padding: 10px 26px;
 
   &__list {
     margin-top: 20px;
@@ -39,6 +39,10 @@
       column-gap: 0;
     }
   }
+}
+
+.collapseButton {
+  align-self: center;
 }
 
 .collapsed {

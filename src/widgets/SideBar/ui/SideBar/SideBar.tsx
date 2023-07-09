@@ -30,7 +30,7 @@ export const SideBar: FC<SideBarProps> = ({ className }) => {
                 data-testid="sidebar-toggle"
                 onClick={handleCollapse}
             >
-                {t('Тогл')}
+                {t('T')}
             </Button>
             <div className={cls.sideBar__list}>
                 <AppLink to={RouterPath.main} className={cls.sideBar__item}>
