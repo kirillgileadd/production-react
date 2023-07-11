@@ -7,15 +7,19 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { Button } from 'shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
-    className?: string;
+  className?: string;
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
-    const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <Button theme="unstyled" className={classNames('', {}, [className])} onClick={toggleTheme}>
-            {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
-        </Button>
-    );
+  return (
+    <Button
+      theme="unstyled"
+      className={classNames('', {}, [className])}
+      onClick={toggleTheme}
+    >
+      {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
+    </Button>
+  );
 };

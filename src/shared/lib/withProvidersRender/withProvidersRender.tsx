@@ -8,23 +8,24 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { DeepPartial } from '@reduxjs/toolkit';
 
 export interface providerRenderOptions extends RenderOptions {
-    route?: string
-    initialState?: StateSchema
+  route?: string;
+  initialState?: StateSchema;
 }
 
-export const withProvidersRender = (component: ReactElement, options?: providerRenderOptions) => {
-    const { route = '/' } = options;
+export const withProvidersRender = (
+  component: ReactElement,
+  options?: providerRenderOptions,
+) => {
+  const { route = '/' } = options;
 
-    return render(
-        <StoreProvider initialState={options.initialState}>
-            <MemoryRouter initialEntries={[route]}>
-                <I18nextProvider
-                    i18n={i18nTest}
-                >
-                    <ThemeProvider>{component}</ThemeProvider>
-                </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>,
-        { ...options },
-    );
+  return render(
+    <StoreProvider initialState={options.initialState}>
+      <MemoryRouter initialEntries={[route]}>
+        <I18nextProvider i18n={i18nTest}>
+          <ThemeProvider>{component}</ThemeProvider>
+        </I18nextProvider>
+      </MemoryRouter>
+    </StoreProvider>,
+    { ...options },
+  );
 };

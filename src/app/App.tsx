@@ -7,21 +7,21 @@ import { SideBar } from 'widgets/SideBar';
 import { Modal } from 'shared/ui/Modal/Modal';
 
 function App() {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
 
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <div className={classNames('app', {})}>
-            <Suspense fallback="">
-                <NavBar />
-                <div className="content-page">
-                    <SideBar />
-                    <AppRouter />
-                </div>
-            </Suspense>
+  return (
+    <div className={classNames('app', {})}>
+      <Suspense fallback="">
+        <NavBar />
+        <div className="content-page">
+          <SideBar />
+          <AppRouter />
         </div>
-    );
+      </Suspense>
+    </div>
+  );
 }
 
 export default App;

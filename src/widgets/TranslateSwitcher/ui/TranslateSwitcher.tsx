@@ -5,19 +5,25 @@ import { Button } from 'shared/ui/Button/Button';
 import cls from './TranslateSwitcher.module.scss';
 
 interface TranslateSwitcherProps {
-    className?: string;
+  className?: string;
 }
 
-export const TranslateSwitcher: FC<TranslateSwitcherProps> = ({ className }) => {
-    const { t, i18n } = useTranslation();
+export const TranslateSwitcher: FC<TranslateSwitcherProps> = ({
+  className,
+}) => {
+  const { t, i18n } = useTranslation();
 
-    const onTranslate = () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    };
+  const onTranslate = () => {
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+  };
 
-    return (
-        <Button theme="unstyled" onClick={onTranslate} className={classNames(cls.translateSwitcher, {}, [className])}>
-            {t('Язык')}
-        </Button>
-    );
+  return (
+    <Button
+      theme="unstyled"
+      onClick={onTranslate}
+      className={classNames(cls.translateSwitcher, {}, [className])}
+    >
+      {t('Язык')}
+    </Button>
+  );
 };
