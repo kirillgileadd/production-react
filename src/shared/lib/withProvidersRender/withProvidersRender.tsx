@@ -9,7 +9,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 
 export interface providerRenderOptions extends RenderOptions {
   route?: string;
-  initialState?: StateSchema;
+  initialState?: DeepPartial<StateSchema>;
 }
 
 export const withProvidersRender = (

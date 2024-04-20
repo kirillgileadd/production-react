@@ -36,6 +36,7 @@ module.exports = {
     ],
     'react/self-closing-comp': 'off',
     'import/no-unresolved': 'off',
+    'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
