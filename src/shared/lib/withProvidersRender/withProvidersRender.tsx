@@ -16,16 +16,14 @@ export const withProvidersRender = (
   component: ReactElement,
   options?: providerRenderOptions,
 ) => {
-  const { route = '/' } = options;
-
   return render(
-    <StoreProvider initialState={options.initialState}>
-      <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[options?.route ?? '/']}>
+      <StoreProvider initialState={options?.initialState}>
         <I18nextProvider i18n={i18nTest}>
           <ThemeProvider>{component}</ThemeProvider>
         </I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>,
+      </StoreProvider>
+    </MemoryRouter>,
     { ...options },
   );
 };
