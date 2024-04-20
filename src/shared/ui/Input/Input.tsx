@@ -17,6 +17,7 @@ interface InputProps
   onChange?: (value: string) => void;
   fullWidth?: boolean;
   autoFocus?: boolean;
+  label?: string;
 }
 
 export const Input: FC<InputProps> = memo(
@@ -27,6 +28,7 @@ export const Input: FC<InputProps> = memo(
     type = 'text',
     fullWidth,
     autoFocus,
+    label,
     ...otherProps
   }) => {
     const ref = useRef<HTMLInputElement>(null);
@@ -47,7 +49,9 @@ export const Input: FC<InputProps> = memo(
 
     return (
       <div className={classNames(cls.inputWrapper, mods, [className])}>
+        <label htmlFor="input">{label}</label>
         <input
+          id="input"
           ref={ref}
           className={cls.input}
           {...otherProps}

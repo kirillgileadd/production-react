@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SideBar } from './SideBar';
 
 const meta: Meta<typeof SideBar> = {
-  title: 'shared/SideBar',
+  title: 'widgets/SideBar',
   component: SideBar,
   argTypes: {},
 };

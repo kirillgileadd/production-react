@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NavBar } from './NavBar';
 
 const meta: Meta<typeof NavBar> = {
-  title: 'shared/NavBar',
+  title: 'widgets/NavBar',
   component: NavBar,
   argTypes: {},
 };
