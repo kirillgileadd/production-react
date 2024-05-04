@@ -1,5 +1,8 @@
 :root {
   --font-family: consolas, "Roboto";
+  --font-size-xs: 12px;
+  --font-height-xs: 16px;
+  --font-xs: var(--font-size-xs) / var(--font-height-xs) var(--font-family);
   --font-size-m: 16px;
   --font-height-m: 24px;
   --font-m: var(--font-size-m) / var(--font-height-m) var(--font-family);
@@ -17,4 +20,6 @@
 
   // colors
   --owerlay-color: rgba(0 0 0 / 60%);
+  --red-light: rgb(220 54 54);
+  --red-dark: rgb(163 3 3);
 }

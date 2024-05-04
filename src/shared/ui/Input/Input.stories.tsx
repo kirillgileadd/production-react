@@ -11,5 +11,8 @@ export default meta;
 type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
-  render: () => <Input label="LABEL" value="value" />,
+  args: {
+    label: 'Label',
+    value: 'value',
+  },
 };

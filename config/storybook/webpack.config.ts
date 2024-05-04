@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/BuildCssLoader';
@@ -11,7 +11,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve.modules.push(paths.src);
+  config.resolve.modules.unshift(paths.src);
   config.resolve.extensions.push('.ts', '.tsx');
 
   // eslint-disable-next-line no-param-reassign
@@ -29,6 +29,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
   });
 
   config.module.rules.push(buildCssLoader(true));
+
+  config!.plugins!.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook'),
+    }),
+  );
 
   return config;
 };

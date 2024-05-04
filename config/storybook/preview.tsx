@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/configs/storybook/StyleDecorator/StyleDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import { ProvidersDeocorator } from '../../src/shared/configs/storybook/ProvidersDeocorator/ProvidersDeocorator';
+import 'loki/configure-react';
 
 const preview: Preview = {
   parameters: {

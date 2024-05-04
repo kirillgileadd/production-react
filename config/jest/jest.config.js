@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+const path = require('path');
+
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -21,18 +23,20 @@ module.exports = {
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  moduleDirectories: ['node_modules', '<rootDir>/src'],
-
+  moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>src'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   rootDir: '../../',
-
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
   moduleNameMapper: {
+    '^.+\\.tsx?$': 'ts-jest',
     '\\.s?css$': 'identity-obj-proxy',
-    '^.+\\.svg$': '<rootDir>/config/jest/svgTransform.js',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^axios$': 'axios/dist/node/axios.cjs',
   },
-
+  preset: 'ts-jest',
+  transformIgnorePatterns: ['node_modules/(?!troublesome-dependency/.*)'],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 

@@ -1,12 +1,16 @@
 .button {
   cursor: pointer;
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: 0 12px;
   background-color: var(--secondary-color);
   color: var(--inverted-primary-color);
   border: none;
   outline: none;
   font-weight: 600;
+  min-height: 35px;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
 }
 
 .unstyled {
@@ -21,4 +25,14 @@
   background: none;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
+}
+
+.white {
+  background: none;
+  color: var(--white-color);
+  border: 1px solid var(--white-color);
+}
+
+.disabled {
+  opacity: 0.7;
 }

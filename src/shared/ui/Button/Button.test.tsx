@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from './Button';
 
 describe('Butoon', () => {
   test('test in the document', () => {
@@ -8,7 +8,8 @@ describe('Butoon', () => {
   });
 
   test('add theme class', () => {
-    render(<Button theme="secondary">TEST</Button>);
+    // eslint-disable-next-line no-undef
+    render(<Button theme={ButtonTheme.SECONDARY}>TEST</Button>);
     expect(screen.getByText('TEST')).toHaveClass('secondary');
     screen.debug();
   });

@@ -13,8 +13,19 @@
   }
 }
 
-.fullWidth {
-  input {
-    width: 100%;
-  }
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  max-width: 190px;
+}
+
+.label {
+  font: var(--font-xs);
+  margin-bottom: 3px;
+}
+
+.fullWidth.inputWrapper {
+  width: 100%;
+  max-width: none;
 }

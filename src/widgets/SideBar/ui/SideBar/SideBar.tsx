@@ -5,10 +5,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { TranslateSwitcher } from 'widgets/TranslateSwitcher';
 import { useTranslation } from 'react-i18next';
 import { AppLink } from 'shared/ui/AppLink';
-import {
-  AppRouter,
-  RouterPath,
-} from 'shared/configs/routerConfig/routerConfig';
+import { RouterPath } from 'shared/configs/routerConfig/routerConfig';
 
 import HomeIcon from 'shared/assets/icons/home.svg';
 import InfoIcon from 'shared/assets/icons/info-circle.svg';

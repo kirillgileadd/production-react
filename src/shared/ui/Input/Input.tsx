@@ -49,7 +49,11 @@ export const Input: FC<InputProps> = memo(
 
     return (
       <div className={classNames(cls.inputWrapper, mods, [className])}>
-        <label htmlFor="input">{label}</label>
+        {label && (
+          <label className={cls.label} htmlFor="input">
+            {label}
+          </label>
+        )}
         <input
           id="input"
           ref={ref}
