@@ -6,17 +6,25 @@ import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
   onSuccess: () => void;
 }
 
-export const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const loginForm = useSelector(getLoginState);
@@ -45,39 +53,44 @@ export const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
-  }, [dispatch, loginForm.password, loginForm.username, onSuccess]);
+  }, [dispatch, loginForm?.password, loginForm?.username, onSuccess]);
 
   return (
-    <div className={classNames(cls.loginForm, {}, [className])}>
-      <Text className={cls.loginForm__title} title={t('Войти')} />
-      {loginForm.error && (
-        <Text text={loginForm.error} theme={TextTheme.ERROR} />
-      )}
-      <Input
-        className={cls.loginForm__input}
-        label={t('Почта')}
-        onChange={onChangeUsername}
-        value={loginForm.username}
-        fullWidth
-        type="text"
-        autoFocus
-      />
-      <Input
-        className={cls.loginForm__input}
-        label={t('Пароль')}
-        fullWidth
-        value={loginForm.password}
-        onChange={onChangePassword}
-        type="text"
-      />
-      <Button
-        disabled={loginForm.isLoading}
-        isLoading={loginForm.isLoading}
-        className={cls.loginForm__btn}
-        onClick={onLoginClick}
-      >
-        {t('Войти')}
-      </Button>
-    </div>
+    // eslint-disable-next-line i18next/no-literal-string
+    <DynamicModuleLoader reducers={initialReducers}>
+      <div className={classNames(cls.loginForm, {}, [className])}>
+        <Text className={cls.loginForm__title} title={t('Войти')} />
+        {loginForm?.error && (
+          <Text text={loginForm.error} theme={TextTheme.ERROR} />
+        )}
+        <Input
+          className={cls.loginForm__input}
+          label={t('Почта')}
+          onChange={onChangeUsername}
+          value={loginForm?.username}
+          fullWidth
+          type="text"
+          autoFocus
+        />
+        <Input
+          className={cls.loginForm__input}
+          label={t('Пароль')}
+          fullWidth
+          value={loginForm?.password}
+          onChange={onChangePassword}
+          type="text"
+        />
+        <Button
+          disabled={loginForm?.isLoading}
+          isLoading={loginForm?.isLoading}
+          className={cls.loginForm__btn}
+          onClick={onLoginClick}
+        >
+          {t('Войти')}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 };
+
+export default LoginForm;
