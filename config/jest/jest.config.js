@@ -30,13 +30,14 @@ module.exports = {
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
   moduleNameMapper: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^axios$': require.resolve('axios'),
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    '^axios$': 'axios/dist/node/axios.cjs',
   },
-  preset: 'ts-jest',
-  transformIgnorePatterns: ['node_modules/(?!troublesome-dependency/.*)'],
+  transformIgnorePatterns: [
+    'node_modules/(?!troublesome-dependency/.*)',
+    'node_modules/(?!axios)',
+  ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -87,7 +88,9 @@ module.exports = {
   // An array of file extensions your modules use
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  // moduleNameMapper: {
+  //   axios: 'axios/dist/node/axios.cjs',
+  // },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
