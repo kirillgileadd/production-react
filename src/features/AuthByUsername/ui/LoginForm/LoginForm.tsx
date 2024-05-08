@@ -28,7 +28,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const loginForm = useSelector(getLoginState);
-  useDynamicModuleLoader({ reducers: { loginForm: loginReducer } });
+  useDynamicModuleLoader({ reducers: initialReducers });
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -60,7 +60,10 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
     <div className={classNames(cls.loginForm, {}, [className])}>
       <Text className={cls.loginForm__title} title={t('Войти')} />
       {loginForm?.error && (
-        <Text text={loginForm.error} theme={TextTheme.ERROR} />
+        <Text
+          text={t('Вы ввели неверный логин или пароль')}
+          theme={TextTheme.ERROR}
+        />
       )}
       <Input
         className={cls.loginForm__input}

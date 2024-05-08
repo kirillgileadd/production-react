@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import MoonIcon from 'shared/assets/icons/moon-icon.svg';
@@ -10,7 +10,7 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -22,4 +22,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
       {theme === Theme.DARK ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
-};
+});

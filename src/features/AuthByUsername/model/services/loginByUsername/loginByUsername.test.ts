@@ -1,13 +1,9 @@
 import axios from 'axios';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import i18n from 'shared/configs/i18n/i18n';
 import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 import { userActions } from 'entities/User';
 
 jest.mock('axios');
-jest.mock('shared/configs/i18n/i18n', () => ({
-  t: jest.fn().mockImplementation((key) => key),
-}));
 
 const mockedAxios = jest.mocked(axios, true);
 
@@ -63,11 +59,9 @@ describe('longByUsername.test', () => {
   });
 
   test('error login', async () => {
-    const rejectValue = 'Неверный логин или пароль';
     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const thunk = new TestAsyncThunk(loginByUsername);
     const result = await thunk.callThunk({ username: '123', password: '123' });
-    expect(i18n.t).toHaveBeenCalledWith(rejectValue);
 
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

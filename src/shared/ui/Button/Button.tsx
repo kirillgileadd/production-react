@@ -1,6 +1,5 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Loader } from 'shared/ui/Loader/Loader';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -26,35 +25,35 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 
-export const Button: FC<ButtonProps> = ({
-  className,
-  children,
-  disabled,
-  isLoading,
-  square,
-  size,
-  type,
-  theme = ButtonTheme.PRIMARY,
-  ...props
-}) => {
-  const mods = {
-    [cls[theme]]: true,
-    [cls.square]: square,
-    [cls[size]]: true,
-    [cls.disabled]: disabled,
-    [cls.isLoading]: isLoading,
-  };
+export const Button: FC<ButtonProps> = memo(
+  ({
+    className,
+    children,
+    disabled,
+    isLoading,
+    square,
+    size,
+    type,
+    theme = ButtonTheme.PRIMARY,
+    ...props
+  }) => {
+    const mods = {
+      [cls[theme]]: true,
+      [cls.square]: square,
+      [cls[size]]: true,
+      [cls.disabled]: disabled,
+      [cls.isLoading]: isLoading,
+    };
 
-  return (
-    <button
-      {...props}
-      type="button"
-      disabled={disabled || isLoading}
-      className={classNames(cls.button, mods, [className, cls[theme]])}
-    >
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      {isLoading && <Loader />}
-      {children}
-    </button>
-  );
-};
+    return (
+      <button
+        {...props}
+        type="button"
+        disabled={disabled || isLoading}
+        className={classNames(cls.button, mods, [className, cls[theme]])}
+      >
+        {children}
+      </button>
+    );
+  },
+);
