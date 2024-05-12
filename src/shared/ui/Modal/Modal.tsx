@@ -7,7 +7,7 @@ import {
   useEffect,
   useCallback,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mode } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
@@ -32,8 +32,7 @@ export const Modal: FC<ModalProps> = ({
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const { theme } = useTheme();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const closeHandler = useCallback(() => {
     if (!onClose) return;
@@ -69,12 +68,14 @@ export const Modal: FC<ModalProps> = ({
     }
 
     return () => {
-      clearTimeout(timerRef.current);
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mode = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };

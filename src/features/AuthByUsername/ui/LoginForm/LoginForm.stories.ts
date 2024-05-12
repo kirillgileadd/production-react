@@ -17,7 +17,10 @@ export const Primary: Story = {
   decorators: [
     StoreDecorator(
       {
-        loginForm: { username: 'admin', password: '123' },
+        loginForm: {
+          username: 'admin',
+          password: '123',
+        },
       },
       { loginForm: loginReducer },
     ),
@@ -29,7 +32,11 @@ export const Error: Story = {
   decorators: [
     StoreDecorator(
       {
-        loginForm: { username: '', password: '', error: 'error' },
+        loginForm: {
+          username: '',
+          password: '',
+          error: { username: 'error', password: 'error', message: 'error' },
+        },
       },
       { loginForm: loginReducer },
     ),

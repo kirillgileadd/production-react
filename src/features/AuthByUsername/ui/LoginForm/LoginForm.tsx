@@ -17,7 +17,7 @@ import { getLoginState } from '../../model/selectors/getLoginState/getLoginState
 
 export interface LoginFormProps {
   className?: string;
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -45,6 +45,18 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   );
 
   const onLoginClick = useCallback(async () => {
+    if (!loginForm?.username) {
+      dispatch(
+        loginActions.setError({ username: t('Введите имя пользователя') }),
+      );
+      return;
+    }
+
+    if (!loginForm?.password) {
+      dispatch(loginActions.setError({ password: t('Введите пароль') }));
+      return;
+    }
+
     const result = await dispatch(
       loginByUsername({
         username: loginForm.username,
@@ -52,23 +64,21 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
       }),
     );
     if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
+      onSuccess?.();
     }
-  }, [dispatch, loginForm?.password, loginForm?.username, onSuccess]);
+  }, [dispatch, loginForm?.password, loginForm?.username, onSuccess, t]);
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
       <Text className={cls.loginForm__title} title={t('Войти')} />
-      {loginForm?.error && (
-        <Text
-          text={t('Вы ввели неверный логин или пароль')}
-          theme={TextTheme.ERROR}
-        />
+      {loginForm?.error?.message && (
+        <Text text={t(loginForm.error.message)} theme={TextTheme.ERROR} />
       )}
       <Input
         className={cls.loginForm__input}
         label={t('Почта')}
         onChange={onChangeUsername}
+        error={loginForm?.error?.username}
         value={loginForm?.username}
         fullWidth
         type="text"
@@ -80,6 +90,7 @@ const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
         fullWidth
         value={loginForm?.password}
         onChange={onChangePassword}
+        error={loginForm?.error?.password}
         type="text"
       />
       <Button

@@ -5,9 +5,9 @@ import {
   memo,
   useEffect,
   useRef,
-  useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Input.module.scss';
 
 interface InputProps
@@ -18,6 +18,7 @@ interface InputProps
   fullWidth?: boolean;
   autoFocus?: boolean;
   label?: string;
+  error?: string;
 }
 
 export const Input: FC<InputProps> = memo(
@@ -29,13 +30,14 @@ export const Input: FC<InputProps> = memo(
     fullWidth,
     autoFocus,
     label,
+    error,
     ...otherProps
   }) => {
     const ref = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
       if (autoFocus) {
-        ref.current.focus();
+        ref?.current?.focus();
       }
     }, [autoFocus]);
 
@@ -63,6 +65,7 @@ export const Input: FC<InputProps> = memo(
           value={value}
           onChange={onChangeHandler}
         />
+        {error && <Text theme={TextTheme.ERROR} label={error} />}
       </div>
     );
   },

@@ -7,6 +7,7 @@ import { SideBar } from 'widgets/SideBar';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const { theme } = useTheme();

@@ -8,8 +8,14 @@
   color: var(--primary-color);
 }
 
+.label {
+  font: var(--font-xs);
+  color: var(--primary-color);
+}
+
 .error {
   .title,
+  .label,
   .text {
     color: var(--red-light);
   }

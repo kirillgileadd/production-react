@@ -1,10 +1,10 @@
-type Mode = Record<string, string | boolean>;
+export type Mode = Record<string, string | boolean | undefined>;
 
 // eslint-disable-next-line max-len
 export const classNames = (
   className: string,
   modes: Mode = {},
-  additional: string[] = [],
+  additional: Array<string | undefined> = [],
 ): string =>
   [
     className,

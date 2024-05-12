@@ -11,11 +11,12 @@ interface TextProps {
   className?: string;
   title?: string;
   text?: string;
+  label?: string;
   theme?: TextTheme;
 }
 
 export const Text: FC<TextProps> = memo(
-  ({ className, text, title, theme = TextTheme.PRIMARY }) => {
+  ({ className, text, title, label, theme = TextTheme.PRIMARY }) => {
     const mods = {
       [cls[theme]]: true,
     };
@@ -24,6 +25,7 @@ export const Text: FC<TextProps> = memo(
       <div className={classNames(cls.text, mods, [className])}>
         {title && <p className={cls.title}>{title}</p>}
         {text && <p className={cls.text}>{text}</p>}
+        {label && <p className={cls.label}>{label}</p>}
       </div>
     );
   },
