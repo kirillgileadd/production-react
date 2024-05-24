@@ -1,4 +1,5 @@
-import { CountryT, CurrencyT } from 'shared/const/common';
+import { CurrencyT } from 'entities/Currency/model/types/currency';
+import { CountryT } from 'entities/Country/model/types/country';
 
 export interface ProfileT {
   first: string | null;
@@ -15,5 +16,4 @@ export interface ProfileSchema {
   data?: ProfileT;
   isLoading: boolean;
   error?: string;
-  readonly?: boolean;
 }

@@ -21,7 +21,6 @@ export const Common: Story = {
           data: undefined,
           isLoading: false,
           error: undefined,
-          readonly: true,
         },
       },
       { profile: profileReducer },

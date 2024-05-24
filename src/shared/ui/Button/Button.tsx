@@ -8,6 +8,7 @@ export enum ButtonTheme {
   UNSTYLED = 'unstyled',
   OUTLINE = 'outline',
   WHITE = 'white',
+  RED = 'red',
 }
 
 export enum ButtonSize {

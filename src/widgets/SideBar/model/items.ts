@@ -8,9 +8,10 @@ export interface SidebarItemT {
   path: string;
   text: string;
   Icon: React.ComponentType<any>;
+  authOnly?: boolean;
 }
 
-export const SibarItemsList: SidebarItemT[] = [
+export const SidebarItemsList: SidebarItemT[] = [
   {
     path: RouterPath.main,
     Icon: HomeIcon,
@@ -26,5 +27,6 @@ export const SibarItemsList: SidebarItemT[] = [
     path: RouterPath.profile,
     Icon: IconUserCircle,
     text: 'Профиль',
+    authOnly: true,
   },
 ];

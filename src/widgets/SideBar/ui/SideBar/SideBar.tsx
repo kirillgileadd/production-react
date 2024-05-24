@@ -4,7 +4,7 @@ import { Button } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { TranslateSwitcher } from 'widgets/TranslateSwitcher';
 import { useTranslation } from 'react-i18next';
-import { SibarItemsList } from 'widgets/SideBar/model/items';
+import { SidebarItemsList } from 'widgets/SideBar/model/items';
 import { SidebarItem } from 'widgets/SideBar/ui/SidebarItem/SidebarItem';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import cls from './SideBar.module.scss';
@@ -37,7 +37,7 @@ export const SideBar: FC<SideBarProps> = memo(({ className }) => {
         {collapsed ? <IconMenu2 /> : <IconX />}
       </Button>
       <div className={cls.sideBar__list}>
-        {SibarItemsList.map((item) => (
+        {SidebarItemsList.map((item) => (
           <SidebarItem collapsed={collapsed} item={item} key={item.path} />
         ))}
       </div>

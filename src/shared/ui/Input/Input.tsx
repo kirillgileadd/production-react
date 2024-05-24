@@ -13,12 +13,13 @@ import cls from './Input.module.scss';
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   fullWidth?: boolean;
   autoFocus?: boolean;
   label?: string;
   error?: string;
+  readonly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo(
@@ -31,6 +32,7 @@ export const Input: FC<InputProps> = memo(
     autoFocus,
     label,
     error,
+    readonly,
     ...otherProps
   }) => {
     const ref = useRef<HTMLInputElement>(null);
@@ -47,6 +49,7 @@ export const Input: FC<InputProps> = memo(
 
     const mods = {
       [cls.fullWidth]: fullWidth,
+      [cls.readonly]: readonly,
     };
 
     return (
@@ -63,6 +66,7 @@ export const Input: FC<InputProps> = memo(
           {...otherProps}
           type={type}
           value={value}
+          readOnly={readonly}
           onChange={onChangeHandler}
         />
         {error && <Text theme={TextTheme.ERROR} label={error} />}

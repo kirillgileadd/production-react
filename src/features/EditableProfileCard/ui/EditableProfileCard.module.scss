@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  column-gap: 18px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
